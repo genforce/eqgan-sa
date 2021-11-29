@@ -12,9 +12,6 @@
 [[Project Page](https://genforce.github.io/eqgan/)]
 [[Demo](https://www.youtube.com/watch?v=k7sG4XY5rIc)]
 
-<!-- [[Project Page](https://genforce.github.io/eqgan/)] -->
-<!-- [[Project Page](https://github.com/jytime/eqgan/blob/main/docs/index.html)] -->
-
 
 In Generative Adversarial Networks (GANs), a generator (G) and a discriminator (D) are expected to reach a certain equilibrium where D cannot distinguish the generated images from the real ones. However, in practice it is difficult to achieve such an equilibrium in GAN training, instead, D almost always surpasses G. We attribute this phenomenon to the information asymmetry that D learns its own visual attention when determining whether an image is real or fake, but G has no explicit clue on which regions to focus on. 
 

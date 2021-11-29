@@ -52,11 +52,7 @@
     <a href="https://github.com/genforce/eqgan" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://www.youtube.com/watch?v=k7sG4XY5rIc" target="_blank">[Demo]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </div>
-<!-- 
-  <div class="teaser">
-    <img src="./assets/Land_Git.png">
-  </div>
-   -->
+
   <div class="teaser">
     <a href="#demo"><img src="assets/teaser_v3.gif" style="width: 80%;"></a><br>
   </div>
@@ -71,7 +67,6 @@
   <div class="body">
     In Generative Adversarial Networks (GANs), a generator (G) and a discriminator (D) are expected to reach a certain equilibrium where D cannot distinguish the generated images from the real ones. However, in practice it is difficult to achieve such an equilibrium in GAN training, instead, D almost always surpasses G. We attribute this phenomenon to the information asymmetry that D learns its own visual attention when determining whether an image is real or fake, but G has no explicit clue on which regions to focus on. 
     <br>
-    <br>
     To alleviate the issue of D dominating the competition in GANs, we aim to raise the spatial awareness of G. We encode randomly sampled multi-level heatmaps into the intermediate layers of G as an inductive bias. We further propose to align the spatial awareness of G with the attention map induced from D. Through this way we effectively lessen the information gap between D and G. Extensive results show that our method pushes the two-player game in GANs closer to the equilibrium, leading to a better synthesis performance. As a byproduct, the introduced spatial awareness facilitates interactive editing over the output synthesis.  </div>
 </div>
 <!-- === Overview Section Ends === -->
@@ -85,7 +80,7 @@
   <div class="title">Demo</div>
   <div class="body">
 
-    <p style="margin-top: 20pt"><a name="demo"></a></p>
+    <!-- <p style="margin-top: 20pt"><a name="demo"></a></p> -->
 
     We build an interactive interface to visualize that though not designed for this, EqGAN enables the interactive spatial editing of the output image.
     <!-- Adjust the frame size based on the demo (Every project differs). -->
@@ -95,13 +90,6 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
     </div>
-
-    <!-- https://www.youtube.com/embed/KeVs2VWbRso -->
-
-    <!-- div class="teaser">
-      <img src="assets/tea_gif.gif" style="width: 60%;"><br>
-      <font size="3">* The full demo is available <a href="https://www.youtube.com/watch?v=KeVs2VWbRso" target="_blank">here</a>.</font>
-    </div> -->
 
   </div>
 </div>
