@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- === Header Starts === -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>EqGAN</title>
+
+  <link href="./assets/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/font.css" rel="stylesheet" type="text/css">
+  <link href="./assets/style.css" rel="stylesheet" type="text/css">
+</head>
+<!-- === Header Ends === -->
+
+
+<body>
+
+
+<!-- === Home Section Starts === -->
+<div class="section">
+  <!-- === Title Starts === -->
+  <div class="header">
+    <div class="logo">
+      <a href="https://genforce.github.io/" target="_blank"><img src="./assets/genforce.png"></a>
+    </div>
+    <div class="title", style="padding-top: 25;">  <!-- Set padding as 10 if title is with two lines. -->
+      Improving GAN Equilibrium <br /> by Raising Spatial Awareness
+    </div>
+  </div>
+  <!-- === Title Ends === -->
+  <div class="author">
+    <a href="https://jytime.github.io/" target="_blank">Jianyuan Wang</a><sup>1,2</sup>,&nbsp;
+    <a href="http://ceyuan.me/" target="_blank">Ceyuan Yang</a><sup>1</sup>,&nbsp;
+    <a href="https://justimyhxu.github.io/" target="_blank">Yinghao Xu</a><sup>1</sup>,&nbsp;
+    <a href="http://shenyujun.github.io/" target="_blank">Yujun Shen</a><sup>1</sup>,&nbsp;  
+    <br>
+    <a href="http://users.cecs.anu.edu.au/~hongdong/" target="_blank">Hongdong Li</a><sup>2</sup>,&nbsp;  
+    <a href="https://boleizhou.github.io/" target="_blank">Bolei Zhou</a><sup>1</sup>&nbsp;
+  </div>
+  <div class="institution">
+    <div>
+      <sup>1</sup> The Chinese University of Hong Kong, <br>
+      <sup>2</sup> The Australian National University
+    </div>  
+  </div>
+
+  <br>
+  <div class="link">
+    <a href="" target="_blank">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             
+    <a href="https://github.com/genforce/eqgan" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://www.youtube.com/watch?v=k7sG4XY5rIc" target="_blank">[Demo]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+<!-- 
+  <div class="teaser">
+    <img src="./assets/Land_Git.png">
+  </div>
+   -->
+  <div class="teaser">
+    <a href="#demo"><img src="assets/teaser_v3.gif" style="width: 80%;"></a><br>
+  </div>
+
+</div>
+<!-- === Home Section Ends === -->
+
+
+<!-- === Overview Section Starts === -->
+<div class="section">
+  <div class="title">Overview</div>
+  <div class="body">
+    In Generative Adversarial Networks (GANs), a generator (G) and a discriminator (D) are expected to reach a certain equilibrium where D cannot distinguish the generated images from the real ones. However, in practice it is difficult to achieve such an equilibrium in GAN training, instead, D almost always surpasses G. We attribute this phenomenon to the information asymmetry that D learns its own visual attention when determining whether an image is real or fake, but G has no explicit clue on which regions to focus on. 
+    <br>
+    <br>
+    To alleviate the issue of D dominating the competition in GANs, we aim to raise the spatial awareness of G. We encode randomly sampled multi-level heatmaps into the intermediate layers of G as an inductive bias. We further propose to align the spatial awareness of G with the attention map induced from D. Through this way we effectively lessen the information gap between D and G. Extensive results show that our method pushes the two-player game in GANs closer to the equilibrium, leading to a better synthesis performance. As a byproduct, the introduced spatial awareness facilitates interactive editing over the output synthesis.  </div>
+</div>
+<!-- === Overview Section Ends === -->
+
+
+
+
+
+<!-- === Demo Section Starts === -->
+<div class="section">
+  <div class="title">Demo</div>
+  <div class="body">
+
+    <p style="margin-top: 20pt"><a name="demo"></a></p>
+
+    We build an interactive interface to visualize that though not designed for this, EqGAN enables the interactive spatial editing of the output image.
+    <!-- Adjust the frame size based on the demo (Every project differs). -->
+    <div style="position: relative; padding-top: 50%; margin: 20pt auto; text-align: center;">
+      <iframe src="https://www.youtube.com/embed/k7sG4XY5rIc" frameborder=0
+              style="position: absolute; top: 2.5%; left: 2.5%; width: 95%; height: 100%;"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+    <!-- https://www.youtube.com/embed/KeVs2VWbRso -->
+
+    <!-- div class="teaser">
+      <img src="assets/tea_gif.gif" style="width: 60%;"><br>
+      <font size="3">* The full demo is available <a href="https://www.youtube.com/watch?v=KeVs2VWbRso" target="_blank">here</a>.</font>
+    </div> -->
+
+  </div>
+</div>
+<!-- === Demo Section Ends === -->
+
+
+
+
+
+<!-- === Result Section Starts === -->
+<div class="section">
+  <div class="title">Quantitative Results</div>
+  <div class="body">
+
+    With the help of spatial information encoding (represented by SEL) and spatial awarenss alignment (represented by the alignment loss), our method can push the two-player game of GANs toward the equilibrium and thereby improve the synthesis quality. The baseline is the state-of-the-art image synthesis method StyleGAN2. The image synthesis quality is quantified by the metric FID while the disequilibrium degree is quantified by the metric DI.
+    <table width="100%" style="margin: 20pt 0; text-align: center;">
+      <tr>
+        <td><img src="./assets/quan.png" width="80%"></td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+<!-- === Result Section Ends === -->
+
+
+
+<!-- === Result Section Starts === -->
+<div class="section">
+  <div class="title">Qualitative Results</div>
+  <div class="body">
+
+
+    <!-- Adjust the number of rows and columns (EVERY project differs). -->
+
+    We first show several generated samples of an EqGAN model on the LSUN Cat dataset, as below.
+
+    <table width="100%" style="margin: 20pt 0; text-align: center;">
+      <tr>
+        <td><img src="./assets/cats1.png" width="95%"></td>
+      </tr>
+    </table>
+
+
+    Then, we demostrate the spatial awareness of the EqGAN generator via varying the spatial heatmaps. Specifically, we keep the latent codes unchanged and move the spatial heatmap at the coarsest feature level. The arrows indicate the movement direction, where the cat moves along with the varied heatmap.
+
+    <table width="100%" style="margin: 20pt 0; text-align: center;">
+      <tr>
+        <td><img src="./assets/cats2.png" width="95%"></td>
+      </tr>
+    </table>
+
+    <table width="100%" style="margin: 20pt 0; text-align: center;">
+      <tr>
+        <td><img src="./assets/cats3.png" width="95%"></td>
+      </tr>
+    </table>
+
+
+    To further show EqGAN's ability of hierarchical manipulation, we move the heatmap at the finer levels.  Different from the body movement, the change in 8 × 8 heatmap (two centers) mainly moves the cat eyes, and the change in 16 × 16 heatmap (four centers) leads to subtle movement of the cat ears. As highlighted in the rightest column, the cat ears subtly turn right while other parts, even the cat whiskers, remain unchanged.
+
+    <!-- that, as the content is being manipulated, our G knows to adjust the nearby regions to make everything coherent. -->
+
+    <table width="100%" style="margin: 20pt 0; text-align: center;">
+      <tr>
+        <td><img src="./assets/cats4.png" width="95%"></td>
+      </tr>
+    </table>
+
+
+    We also provide the results on the FFHQ dataset and the LSUN Church dataset. Each row uses the same spatial heatmap but different latent codes, and each column uses the same latent code.
+
+    <table width="100%" style="margin: 20pt 0; text-align: center;">
+      <tr>
+        <td><img src="./assets/ffhq.png" width="95%"></td>
+      </tr>
+    </table>
+
+
+    <table width="100%" style="margin: 20pt 0; text-align: center;">
+      <tr>
+        <td><img src="./assets/ch.png" width="95%"></td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+<!-- === Result Section Ends === -->
+
+
+<!-- === Reference Section Starts === -->
+<div class="section">
+  <div class="bibtex">BibTeX</div>
+<pre>
+@article{wang2021eqgan,
+  title   = {Improving GAN Equilibrium by Raising Spatial Awareness},
+  author  = {Wang, Jianyuan and Yang, Ceyuan and Xu, Yinghao and Shen, Yujun and Li, Hongdong and Zhou, Bolei},
+  article = {arXiv preprint},
+  year    = {2021}
+}
+</pre>
+
+  <!-- BZ: we should give other related work enough credits, -->
+  <!--     so please include some most relevant work and leave some comment to summarize work and the difference. -->
+  <div class="ref">Related Work</div>
+
+  <div class="citation">
+    <div class="image"><img src="./assets/sg2.png"></div>
+    <div class="comment">
+      <a href="https://arxiv.org/pdf/1912.04958.pdf" target="_blank">
+        T. Karras, S. Laine, M. Aittala, J. Hellsten, J. Lehtinen, T. Aila.
+        Analyzing and Improving the Image Quality of StyleGAN.
+        CVPR 2020.</a><br>
+      <b>Comment:</b>
+      Proposes a style-based generator StyleGAN2 for high-quality image synthesis.
+    </div>
+  </div>
+
+<!-- 
+  <div class="citation">
+    <div class="image"><img src="./assets/cross-domain.png"></div>
+    <div class="comment">
+      <a href="https://arxiv.org/pdf/2104.06820.pdf" target="_blank">
+        U. Ojha, Y. Li, J. Lu, AA. Efros, YJ. Lee, E. Shechtman, and R. Zhang.
+        Few-shot Image Generation via Cross-domain Correspondence
+        CVPR, 2021.</a><br>
+      <b>Comment:</b>
+      Proposed the cross-domain consistency as a regularization to maintain the diversity.
+    </div>
+  </div>
+
+ -->
+</div>
+<!-- === Reference Section Ends === -->
+
+
+</body>
+</html>
