@@ -34,20 +34,20 @@
     <a href="https://jytime.github.io/" target="_blank">Jianyuan Wang</a><sup>1,2</sup>,&nbsp;
     <a href="http://ceyuan.me/" target="_blank">Ceyuan Yang</a><sup>1</sup>,&nbsp;
     <a href="https://justimyhxu.github.io/" target="_blank">Yinghao Xu</a><sup>1</sup>,&nbsp;
-    <a href="http://shenyujun.github.io/" target="_blank">Yujun Shen</a><sup>1</sup>,&nbsp;  
+    <a href="http://shenyujun.github.io/" target="_blank">Yujun Shen</a><sup>1</sup>,&nbsp;
     <br>
-    <a href="http://users.cecs.anu.edu.au/~hongdong/" target="_blank">Hongdong Li</a><sup>2</sup>,&nbsp;  
+    <a href="http://users.cecs.anu.edu.au/~hongdong/" target="_blank">Hongdong Li</a><sup>2</sup>,&nbsp;
     <a href="https://boleizhou.github.io/" target="_blank">Bolei Zhou</a><sup>1</sup>&nbsp;
   </div>
   <div class="institution">
     <div>
       <sup>1</sup> The Chinese University of Hong Kong, <br>
       <sup>2</sup> The Australian National University
-    </div>  
+    </div>
   </div>
 
   <div class="link">
-    <a href="https://arxiv.org/abs/2112.00718" target="_blank">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             
+    <a href="https://arxiv.org/abs/2112.00718" target="_blank">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://github.com/genforce/eqgan" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://www.youtube.com/watch?v=k7sG4XY5rIc" target="_blank">[Demo]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </div>
@@ -66,7 +66,7 @@
 <div class="section">
   <div class="title">Overview</div>
   <div class="body">
-    In Generative Adversarial Networks (GANs), a generator (G) and a discriminator (D) are expected to reach a certain equilibrium where D cannot distinguish the generated images from the real ones. However, in practice it is difficult to achieve such an equilibrium in GAN training, instead, D almost always surpasses G. We attribute this phenomenon to the information asymmetry that D learns its own visual attention when determining whether an image is real or fake, but G has no explicit clue on which regions to focus on. 
+    In Generative Adversarial Networks (GANs), a generator (G) and a discriminator (D) are expected to reach a certain equilibrium where D cannot distinguish the generated images from the real ones. However, in practice it is difficult to achieve such an equilibrium in GAN training, instead, D almost always surpasses G. We attribute this phenomenon to the information asymmetry that D learns its own visual attention when determining whether an image is real or fake, but G has no explicit clue on which regions to focus on.
     <br>
     To alleviate the issue of D dominating the competition in GANs, we aim to raise the spatial awareness of G. We encode randomly sampled multi-level heatmaps into the intermediate layers of G as an inductive bias. We further propose to align the spatial awareness of G with the attention map induced from D. Through this way we effectively lessen the information gap between D and G. Extensive results show that our method pushes the two-player game in GANs closer to the equilibrium, leading to a better synthesis performance. As a byproduct, the introduced spatial awareness facilitates interactive editing over the output synthesis.  </div>
 </div>
@@ -104,7 +104,7 @@
 
 
 <!-- === Result Section Starts === -->
-<!-- 
+<!--
 <div class="section">
   <div class="title">Quantitative Results</div>
   <div class="body">
@@ -165,7 +165,7 @@
       </tr>
     </table>
 
-<!-- 
+<!--
     We also provide the results on the FFHQ dataset and the LSUN Church dataset. Each row uses the same spatial heatmap but different latent codes, and each column uses the same latent code.
 
     <table width="100%" style="margin: 20pt 0; text-align: center;">
@@ -186,16 +186,6 @@
 <!-- === Result Section Ends === -->
 
 
-
-
-
-
-
-
-
-
-
-
 <!-- === Reference Section Starts === -->
 <div class="section">
   <div class="bibtex">BibTeX</div>
@@ -203,19 +193,13 @@
 @article{wang2021eqgan,
   title   = {Improving GAN Equilibrium by Raising Spatial Awareness},
   author  = {Wang, Jianyuan and Yang, Ceyuan and Xu, Yinghao and Shen, Yujun and Li, Hongdong and Zhou, Bolei},
-  article = {arXiv preprint},
+  article = {arXiv preprint arXiv: 2112.00718},
   year    = {2021}
 }
 </pre>
 
-
-
-  <!-- BZ: we should give other related work enough credits, -->
-  <!--     so please include some most relevant work and leave some comment to summarize work and the difference. -->
-  <!-- 
-
+  <!--
   <div class="ref">Related Work</div>
-
   <div class="citation">
     <div class="image"><img src="./assets/sg2.png"></div>
     <div class="comment">
@@ -227,9 +211,7 @@
       Proposes a style-based generator StyleGAN2 for high-quality image synthesis.
     </div>
   </div>
-
- -->
-<!--   <div class="citation">
+  <div class="citation">
     <div class="image"><img src="./assets/cross-domain.png"></div>
     <div class="comment">
       <a href="https://arxiv.org/pdf/2104.06820.pdf" target="_blank">
@@ -240,7 +222,6 @@
       Proposed the cross-domain consistency as a regularization to maintain the diversity.
     </div>
   </div> -->
-
 
 </div>
 <!-- === Reference Section Ends === -->
