@@ -6,7 +6,7 @@
 
 ![image](./docs/assets/teaser_git.png)
 
-[[Paper](https://arxiv.org/abs/2112.00718)]
+[[Paper](https://arxiv.org/pdf/2112.00718.pdf)]
 [[Project Page](https://genforce.github.io/eqgan/)]
 [[Demo](https://www.youtube.com/watch?v=k7sG4XY5rIc)]
 
