@@ -6,7 +6,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <title>EqGAN</title>
+  <title>EqGAN-SA</title>
 
   <link href="./assets/bootstrap.min.css" rel="stylesheet">
   <link href="./assets/font.css" rel="stylesheet" type="text/css">
@@ -37,24 +37,25 @@
     <a href="http://shenyujun.github.io/" target="_blank">Yujun Shen</a><sup>1</sup>,&nbsp;
     <br>
     <a href="http://users.cecs.anu.edu.au/~hongdong/" target="_blank">Hongdong Li</a><sup>2</sup>,&nbsp;
-    <a href="https://boleizhou.github.io/" target="_blank">Bolei Zhou</a><sup>1</sup>&nbsp;
+    <a href="https://boleizhou.github.io/" target="_blank">Bolei Zhou</a><sup>3</sup>&nbsp;
   </div>
   <div class="institution">
     <div>
       <sup>1</sup> The Chinese University of Hong Kong, <br>
-      <sup>2</sup> The Australian National University
+      <sup>2</sup> The Australian National University, <br>
+      <sup>3</sup> University of California, Los Angeles
     </div>
   </div>
 
   <div class="link">
     <a href="https://arxiv.org/pdf/2112.00718.pdf" target="_blank">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://github.com/genforce/eqgan" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/genforce/eqgan-sa" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://www.youtube.com/watch?v=k7sG4XY5rIc" target="_blank">[Demo]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </div>
 
   <div class="teaser">
     <a href="#demo"><img src="assets/teaser_v3.gif" style="width: 80%;"></a><br>
-    <font size="3">** Interactive editng on the output synthesis of EqGAN, by altering spatial heatmaps.</font>
+    <font size="3">** Interactive editng on the output synthesis of EqGAN-SA, by altering spatial heatmaps.</font>
   </div>
 
 </div>
@@ -85,7 +86,7 @@
 
     <p style="margin-top: 20pt"><a name="demo"></a></p>
 
-    We build an interactive interface to visualize that though not designed for this, EqGAN enables the interactive spatial editing of the output image.
+    We build an interactive interface to visualize that though not designed for this, EqGAN-SA enables the interactive spatial editing of the output image.
     <div style="position: relative; padding-top: 50%; margin: 20pt auto; text-align: center;">
       <iframe src="https://www.youtube.com/embed/k7sG4XY5rIc" frameborder=0
               style="position: absolute; top: 2.5%; left: 2.5%; width: 95%; height: 100%;"
@@ -131,7 +132,7 @@
 
     <!-- Adjust the number of rows and columns (EVERY project differs). -->
 
-    We first show several generated samples of an EqGAN model on the LSUN Cat dataset, as below.
+    We first show several generated samples of an EqGAN-SA model on the LSUN Cat dataset, as below.
 
     <table width="100%" style="margin: 20pt 0; text-align: center;">
       <tr>
@@ -140,7 +141,7 @@
     </table>
 
 
-    Then, we demostrate the spatial awareness of the EqGAN generator via varying the spatial heatmaps. Specifically, we keep the latent codes unchanged and move the spatial heatmap at the coarsest feature level. The arrows indicate the movement direction, where the cat moves along with the varied heatmap.
+    Then, we demostrate the spatial awareness of the EqGAN-SA generator via varying the spatial heatmaps. Specifically, we keep the latent codes unchanged and move the spatial heatmap at the coarsest feature level. The arrows indicate the movement direction, where the cat moves along with the varied heatmap.
 
     <table width="100%" style="margin: 20pt 0; text-align: center;">
       <tr>
@@ -155,7 +156,7 @@
     </table>
 
 
-    To further show EqGAN's ability of hierarchical manipulation, we move the heatmap at the finer levels.  Different from the body movement, the change in 8 × 8 heatmap (two centers) mainly moves the cat eyes, and the change in 16 × 16 heatmap (four centers) leads to subtle movement of the cat ears. As highlighted in the rightest column, the cat ears subtly turn right while other parts, even the cat whiskers, remain unchanged.
+    To further show its ability of hierarchical manipulation, we move the heatmap at the finer levels.  Different from the body movement, the change in 8 × 8 heatmap (two centers) mainly moves the cat eyes, and the change in 16 × 16 heatmap (four centers) leads to subtle movement of the cat ears. As highlighted in the rightest column, the cat ears subtly turn right while other parts, even the cat whiskers, remain unchanged.
 
     <!-- that, as the content is being manipulated, our G knows to adjust the nearby regions to make everything coherent. -->
 
