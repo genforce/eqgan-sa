@@ -27,10 +27,54 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 - [ ] User Interface
 
 
+## Environment
+
+This work was developed on the codebase [styleGAN2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch). Please follow its environment requirement as below:
+
+* Linux and Windows are supported, but Linux is recommended for performance and compatibility reasons.
+* The original codebase uses CUDA toolkit 11.0 and PyTorch 1.7.1, while our experiments were conducted by CUDA toolkit 9.0 and PyTorch 1.8.1. Both the settings are acceptable but may observe a performance difference.
+* Python libraries: `pip install click requests tqdm pyspng ninja imageio-ffmpeg==0.4.3`. 
+
+The code relies heavily on custom PyTorch extensions that are compiled on the fly using NVCC. On Windows, the compilation requires Microsoft Visual Studio. We recommend installing [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/) and adding it into `PATH` using `"C:\Program Files (x86)\Microsoft Visual Studio\<VERSION>\Community\VC\Auxiliary\Build\vcvars64.bat"`.
+
+
+## Dataset Preparation
+
+Please refer to the original page for [data processing](https://github.com/NVlabs/stylegan2-ada-pytorch#preparing-datasets) for details. 
+All the datasets are stored as uncompressed ZIP archives containing uncompressed PNG files and a metadata file `dataset.json` for labels. Please see [`dataset_tool.py`] for more information. Alternatively, the folder can also be used directly as a dataset, without running it through `dataset_tool.py` first, but doing so may lead to suboptimal performance.
+
+**FFHQ**:
+
+Step 1: Download the [Flickr-Faces-HQ dataset](https://github.com/NVlabs/ffhq-dataset) as TFRecords.
+
+Step 2: Extract images from TFRecords using `dataset_tool.py` from the [TensorFlow version of StyleGAN2-ADA](https://github.com/NVlabs/stylegan2-ada/):
+
+```.bash
+# Using dataset_tool.py from TensorFlow version at
+# https://github.com/NVlabs/stylegan2-ada/
+python ../stylegan2-ada/dataset_tool.py unpack \
+    --tfrecord_dir=~/ffhq-dataset/tfrecords/ffhq --output_dir=/tmp/ffhq-unpacked
+```
+
+Step 3: Create ZIP archive using `dataset_tool.py` from this repository:
+
+```.bash
+# Scaled down 256x256 resolution.
+python dataset_tool.py --source=/tmp/ffhq-unpacked --dest=~/datasets/ffhq256x256.zip \
+    --width=256 --height=256
+```
+
+
+**LSUN**: Download the desired categories from the [LSUN project page](https://www.yf.io/p/lsun/) and convert to ZIP archive:
+
+```.bash
+python dataset_tool.py --source=~/downloads/lsun/raw/cat_lmdb --dest=~/datasets/lsuncat200k.zip \
+    --transform=center-crop --width=256 --height=256 --max_images=200000
+```
 
 ## Acknowledgement
 
-This work was developed on the excellent codebase [styleGAN2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch). Thanks for Janne Hellsten and Tero Karras.
+Thanks Janne Hellsten and Tero Karras for their excellent codebase [styleGAN2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch).
 
 
 ## BibTeX
