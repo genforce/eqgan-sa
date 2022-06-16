@@ -77,8 +77,7 @@ python dataset_tool.py --source=~/downloads/lsun/raw/cat_lmdb --dest=~/datasets/
 Taking the LSUN Cat dataset as an example: 
 
 ```.bash
-python ./train.py \
---outdir=/runs --data=/data/lsuncat200k.zip --gpus=8 --cfg=paper256 \
+python ./train.py --outdir=/runs --data=/data/lsuncat200k.zip --gpus=8 --cfg=paper256 \
 --aug=noaug --pl_w=0 --close_style_mixing=True \
 --use_sel=True --align_loss=True 
 ```
