@@ -20,6 +20,8 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 
 - [ ] Scripts
 
+- [ ] Code testing
+
 - [ ] Pretrained Model
 
 - [ ] User Interface
