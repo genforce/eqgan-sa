@@ -16,9 +16,9 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 
 ## TODO
 
-- [x] Training Code
+- :white_check_mark: Training Code
 
-- [x] Training Script
+- :white_check_mark: Training Script
 
 - [ ] Check the Code 
 
