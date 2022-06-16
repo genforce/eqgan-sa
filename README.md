@@ -20,11 +20,17 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 
 - [ ] Scripts
 
-- [ ] Code testing
+- [ ] Check the Code 
 
 - [ ] Pretrained Model
 
 - [ ] User Interface
+
+
+
+## Acknowledgement
+
+This work was developed on the excellent codebase [styleGAN2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch). Thanks for Janne Hellsten and Tero Karras.
 
 
 ## BibTeX
