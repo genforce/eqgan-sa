@@ -16,11 +16,9 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 
 ## TODO
 
-- [x] Training code
+- [x] Training Code
 
 - [ ] Scripts
-
-- [ ] Re-training to test code 
 
 - [ ] Pretrained Model
 
