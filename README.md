@@ -83,9 +83,9 @@ python ./train.py \
 --use_sel=True --align_loss=True 
 ```
 
-The flag `--use_sel` indicates using the spatial encoding layer or not while `align_loss` determines whether using the alignment loss.
+The flag `--use_sel` indicates using the spatial encoding layer or not, while `--align_loss` determines whether using the alignment loss.
 
-The flag for `--data` may be replaced by the paths of other datasets. Please set `--aug` to `noaug` to disable the ADA, i.e., switching to StyleGAN2 instead of StyleGAN2-ADA. We close the path length regularization and style mixing because they have a little effect on our method.
+You may replace `--data` by the paths of other datasets. We set `--aug` to `noaug` to disable the ADA augmentation, i.e., switching to StyleGAN2 instead of StyleGAN2-ADA. We close the path length regularization and style mixing because they have a little effect on our method.
 
 
 ## Acknowledgement
