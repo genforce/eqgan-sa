@@ -18,7 +18,7 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 
 - [x] Training Code
 
-- [ ] Scripts
+- [x] Training Script
 
 - [ ] Check the Code 
 
@@ -29,10 +29,10 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 
 ## Environment
 
-This work was developed on the codebase [styleGAN2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch). Please follow its environment requirement as below:
+This work was developed on the codebase [styleGAN2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch). Please follow its requirement as below:
 
 * Linux and Windows are supported, but Linux is recommended for performance and compatibility reasons.
-* The original codebase uses CUDA toolkit 11.0 and PyTorch 1.7.1, while our experiments were conducted by CUDA toolkit 9.0 and PyTorch 1.8.1. Both the settings are acceptable but may observe a performance difference.
+* The original codebase used CUDA toolkit 11.0 and PyTorch 1.7.1. Our experiments were conducted by CUDA toolkit 9.0 and PyTorch 1.8.1. Both the settings are acceptable but may observe a performance difference.
 * Python libraries: `pip install click requests tqdm pyspng ninja imageio-ffmpeg==0.4.3`. 
 
 The code relies heavily on custom PyTorch extensions that are compiled on the fly using NVCC. On Windows, the compilation requires Microsoft Visual Studio. We recommend installing [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/) and adding it into `PATH` using `"C:\Program Files (x86)\Microsoft Visual Studio\<VERSION>\Community\VC\Auxiliary\Build\vcvars64.bat"`.
@@ -41,7 +41,7 @@ The code relies heavily on custom PyTorch extensions that are compiled on the fl
 ## Dataset Preparation
 
 Please refer to the original page for [data processing](https://github.com/NVlabs/stylegan2-ada-pytorch#preparing-datasets) for details. 
-All the datasets are stored as uncompressed ZIP archives containing uncompressed PNG files and a metadata file `dataset.json` for labels. Please see [`dataset_tool.py`] for more information. Alternatively, the folder can also be used directly as a dataset, without running it through `dataset_tool.py` first, but doing so may lead to suboptimal performance.
+All the datasets are stored as uncompressed ZIP archives containing uncompressed PNG files and a metadata file `dataset.json` for labels. Please see `dataset_tool.py` for more information. Alternatively, the folder can also be used directly as a dataset, without running it through `dataset_tool.py` first, but doing so may lead to suboptimal performance.
 
 **FFHQ**:
 
@@ -71,6 +71,22 @@ python dataset_tool.py --source=/tmp/ffhq-unpacked --dest=~/datasets/ffhq256x256
 python dataset_tool.py --source=~/downloads/lsun/raw/cat_lmdb --dest=~/datasets/lsuncat200k.zip \
     --transform=center-crop --width=256 --height=256 --max_images=200000
 ```
+
+## Training
+
+Taking the LSUN Cat dataset as an example: 
+
+```.bash
+python ./train.py \
+--outdir=/runs --data=/data/lsuncat200k.zip --gpus=8 --cfg=paper256 \
+--aug=noaug --pl_w=0 --close_style_mixing=True \
+--use_sel=True --align_loss=True 
+```
+
+The flag `--use_sel` indicates using the spatial encoding layer or not while `align_loss` determines whether using the alignment loss.
+
+The flag for `--data` may be replaced by the paths of other datasets. Please set `--aug` to `noaug` to disable the ADA, i.e., switching to StyleGAN2 instead of StyleGAN2-ADA. We close the path length regularization and style mixing because they have a little effect on our method.
+
 
 ## Acknowledgement
 
