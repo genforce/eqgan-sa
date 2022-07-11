@@ -27,18 +27,18 @@ from metrics import metric_main
 #----------------------------------------------------------------------------
 import sys
 
-class ForkedPdb(pdb.Pdb):
-    """A Pdb subclass that may be used
-    from a forked multiprocessing child
+# class ForkedPdb(pdb.Pdb):
+#     """A Pdb subclass that may be used
+#     from a forked multiprocessing child
 
-    """
-    def interaction(self, *args, **kwargs):
-        _stdin = sys.stdin
-        try:
-            sys.stdin = open('/dev/stdin')
-            pdb.Pdb.interaction(self, *args, **kwargs)
-        finally:
-            sys.stdin = _stdin
+#     """
+#     def interaction(self, *args, **kwargs):
+#         _stdin = sys.stdin
+#         try:
+#             sys.stdin = open('/dev/stdin')
+#             pdb.Pdb.interaction(self, *args, **kwargs)
+#         finally:
+#             sys.stdin = _stdin
 
 
 def setup_snapshot_image_grid(training_set, random_seed=0):
@@ -168,8 +168,8 @@ def training_loop(
     if rank == 0:
         print('Constructing networks...')
     common_kwargs = dict(c_dim=training_set.label_dim, img_resolution=training_set.resolution, img_channels=training_set.num_channels)
-    G = dnnlib.util.construct_class_by_name(**G_kwargs, **common_kwargs, use_sel = use_sel, config_kwargs=config_kwargs).train().requires_grad_(False).to(device) # subclass of torch.nn.Module
-    D = dnnlib.util.construct_class_by_name(**D_kwargs, **common_kwargs, config_kwargs=config_kwargs).train().requires_grad_(False).to(device) # subclass of torch.nn.Module
+    G = dnnlib.util.construct_class_by_name(**G_kwargs, **common_kwargs, use_sel = use_sel).train().requires_grad_(False).to(device) # subclass of torch.nn.Module
+    D = dnnlib.util.construct_class_by_name(**D_kwargs, **common_kwargs).train().requires_grad_(False).to(device) # subclass of torch.nn.Module
     G_ema = copy.deepcopy(G).eval()
 
 
@@ -217,7 +217,7 @@ def training_loop(
     # Setup training phases.
     if rank == 0:
         print('Setting up training phases...')
-    loss = dnnlib.util.construct_class_by_name(device=device, **ddp_modules, **loss_kwargs,align_loss=align_loss,config_kwargs=config_kwargs) # subclass of training.loss.Loss
+    loss = dnnlib.util.construct_class_by_name(device=device, **ddp_modules, **loss_kwargs,align_loss=align_loss) # subclass of training.loss.Loss
     phases = []
     for name, module, opt_kwargs, reg_interval in [('G', G, G_opt_kwargs, G_reg_interval), ('D', D, D_opt_kwargs, D_reg_interval)]:
         if reg_interval is None:
