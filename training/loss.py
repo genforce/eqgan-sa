@@ -297,7 +297,7 @@ class StyleGAN2Loss(Loss):
                         align_loss_sum = align_loss_sum + alignment_loss*lw_dict[key_name]
                     
                     
-                    alignment_loss = align_loss_sum * self.alignment_loss
+                    alignment_loss = align_loss_sum
                  
                 training_stats.report('Loss/G/align_loss', alignment_loss)
 

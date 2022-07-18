@@ -267,7 +267,7 @@ class ToRGBLayer(torch.nn.Module):
         if self.use_sel:
             self.sel = SEL(norm_dim=in_channels, map_dim=map_dim, nhidden=64,resolution=resolution)
 
-    def forward(self, x, w, heatmap, fused_modconv=True,gain=1):
+    def forward(self, x, w, heatmap, fused_modconv=True, gain=1, noise_mode=None):
 
         styles = self.affine(w) 
 
