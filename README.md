@@ -20,7 +20,7 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 
 :white_check_mark: Training Script
 
-- [ ] Check the Code 
+:white_check_mark: Check the Code 
 
 - [ ] Pretrained Model
 
