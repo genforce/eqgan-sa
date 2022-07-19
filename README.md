@@ -32,8 +32,8 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 This work was developed on the codebase [styleGAN2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch). Please follow its requirement as below:
 
 * Linux and Windows are supported, but Linux is recommended for performance and compatibility reasons.
-* The original codebase used CUDA toolkit 11.0 and PyTorch 1.7.1. Our experiments were conducted by CUDA toolkit 9.0 and PyTorch 1.8.1. Both the settings are acceptable but may observe a performance difference.
-* Python libraries: `pip install click requests tqdm pyspng ninja imageio-ffmpeg==0.4.3`. 
+* The original codebase used CUDA toolkit 11.0 and PyTorch 1.7.1. Our experiments were conducted by CUDA toolkit 9.0 and PyTorch 1.8.1. Both the settings are acceptable but may observe a performance difference. Please also install torchvision along with pytorch.
+* Python libraries: `pip install click requests tqdm pyspng ninja psutil scipy imageio-ffmpeg==0.4.3`. 
 
 The code relies heavily on custom PyTorch extensions that are compiled on the fly using NVCC. On Windows, the compilation requires Microsoft Visual Studio. We recommend installing [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/) and adding it into `PATH` using `"C:\Program Files (x86)\Microsoft Visual Studio\<VERSION>\Community\VC\Auxiliary\Build\vcvars64.bat"`.
 
