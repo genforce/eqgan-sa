@@ -89,7 +89,9 @@ You may replace `--data` by the paths of other datasets. We set `--aug` to `noau
 
 ## Pretrained Models
 
-The model for the LSUN Cat dataset has been available. We are retraining models for other two datasets to ensure reproduction, because the released code is slightly different from the version during submission. For example, the synthesis quality of the provided LSUN Cat model is a bit better than the result we reported in the paper, i.e., 6.62 vs 6.81.
+The model for the LSUN Cat dataset has been available. 
+
+We are retraining models for other two datasets to ensure reproduction, because the released code is slightly different from the version during submission. For example, the synthesis quality of the provided LSUN Cat model is a bit better than the result we reported in the paper, i.e., 6.62 vs 6.81.
 
 | Model | FID | Link 
 | :------: | :------: | :--------: 
