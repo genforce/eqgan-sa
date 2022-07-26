@@ -92,10 +92,10 @@ You may replace `--data` by the paths of other datasets. We set `--aug` to `noau
 The model for the LSUN Cat dataset has been available. We are retraining models for other two datasets to ensure reproduction, because the released code is slightly different from the version during submission.
 
 | Model | FID | Link 
-| :--- | :------: | :--------: 
+| :------: | :------: | :--------: 
 | LSUN Cat    | 6.62     | [link](https://www.dropbox.com/s/ajuk1gqty0hcfk0/cat.pkl?dl=0) 
-| LSUN Church    |     | coming soon 
-| FFHQ   |      | coming soon 
+| LSUN Church    |   /  | Coming  
+| FFHQ   |   /   | Coming  
 
 
 ## Acknowledgement
