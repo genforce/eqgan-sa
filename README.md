@@ -22,7 +22,7 @@ To alleviate the issue of D dominating the competition in GANs, we aim to raise 
 
 :white_check_mark: Check the Code 
 
-- [ ] Pretrained Model
+:white_check_mark: Pretrained Model
 
 - [ ] User Interface
 
@@ -85,6 +85,17 @@ python ./train.py --outdir=/runs --data=/data/lsuncat200k.zip --gpus=8 --cfg=pap
 The flag `--use_sel` indicates using the spatial encoding layer or not, while `--align_loss` determines whether using the alignment loss.
 
 You may replace `--data` by the paths of other datasets. We set `--aug` to `noaug` to disable the ADA augmentation, i.e., switching to StyleGAN2 instead of StyleGAN2-ADA. We close the path length regularization and style mixing because they have a little effect on our method.
+
+
+## Pretrained Models
+
+The model for the LSUN Cat dataset has been available. We are retraining models for other two datasets to ensure reproduction, because the released code is slightly different from the version during submission.
+
+| Model | FID | Link 
+| :--- | :------: | :--------: 
+| LSUN Cat    | 6.62     | [link](https://www.dropbox.com/s/ajuk1gqty0hcfk0/cat.pkl?dl=0) 
+| LSUN Church    |     | coming soon 
+| FFHQ   |      | coming soon 
 
 
 ## Acknowledgement
