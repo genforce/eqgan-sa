@@ -84,7 +84,7 @@ python ./train.py --outdir=/runs --data=/data/lsuncat200k.zip --gpus=8 --cfg=pap
 
 The flag `--use_sel` indicates using the spatial encoding layer or not, while `--align_loss` determines whether using the alignment loss.
 
-You may replace `--data` by the paths of other datasets. We set `--aug` to `noaug` to disable the ADA augmentation, i.e., switching to StyleGAN2 instead of StyleGAN2-ADA. We close the path length regularization and style mixing because they have a little effect on our method.
+You may replace `--data` by the paths of other datasets. We set `--aug` to `noaug` to disable the ADA augmentation, i.e., switching to StyleGAN2 instead of StyleGAN2-ADA. We close the path length regularization and style mixing because they have little effect on our method.
 
 
 ## Pretrained Models
