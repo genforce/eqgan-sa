@@ -96,8 +96,8 @@ We are retraining models for other two datasets to ensure reproduction, because 
 | Model | FID | Link 
 | :------: | :------: | :--------: 
 | LSUN Cat    | 6.62     | [link](https://www.dropbox.com/s/ajuk1gqty0hcfk0/cat.pkl?dl=0) 
-| LSUN Church    |   /  | Coming  
-| FFHQ   |   /   | Coming  
+| LSUN Church    |   -  | Coming  
+| FFHQ   |   -   | Coming  
 
 
 ## Acknowledgement
