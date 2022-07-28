@@ -86,6 +86,17 @@ The flag `--use_sel` indicates using the spatial encoding layer or not, while `-
 
 You may replace `--data` by the paths of other datasets. We set `--aug` to `noaug` to disable the ADA augmentation, i.e., switching to StyleGAN2 instead of StyleGAN2-ADA. We close the path length regularization and style mixing because they have little effect on our method.
 
+## Evaluation
+
+During training, train.py automatically computes FID for each network pickle. To measure the synthesis quality of a pretrained model, you can specify the metric, data path, network pkl, and other settings for calc_metrics.py, like:
+```.bash
+python calc_metrics.py --metrics=fid50k_full --data=data/lsuncat200k.zip --network=ckpt/cat.pkl
+```
+
+You can also generate some samples by:
+```.bash
+python generate.py --outdir=out --trunc=1 --seeds=85,265,297 --network=ckpt/cat.pkl
+```
 
 ## Pretrained Models
 
